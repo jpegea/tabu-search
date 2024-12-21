@@ -5,9 +5,9 @@ import time
 
 def executeInstance():
     m=10
-    path = "instances/MDG-a_4_100_m10.txt"
+    path = "instances/MDG-a_2_n500_m50.txt"
     inst = instance.readInstance(path)
-    sol = tabu.execute(inst, 100, 1, m)
+    sol = tabu.execute(inst, 1000, 0, m)
     print("\nBEST SOLUTION:")
     solution.printSolution(sol)
 
