@@ -4,10 +4,10 @@ import random
 import time
 
 def executeInstance():
-    m=10
+    m=11
     path = "instances/MDG-a_2_n500_m50.txt"
     inst = instance.readInstance(path)
-    sol = tabu.execute(inst, 1000, 0, m)
+    sol = tabu.execute(inst, 3000, 0, m)
     print("\nBEST SOLUTION:")
     solution.printSolution(sol)
 
