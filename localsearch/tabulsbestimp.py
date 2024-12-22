@@ -9,23 +9,23 @@ def move(sol, tabulist):
 
 def selectInterchange(sol, tabulist):
     n = sol['instance']['n']
-    sel = None
-    bestSel = None
-    unsel = None
-    bestUnsel = None
+    sel = -1
+    bestSel = 0x3f3f3f
+    unsel = -1
+    bestUnsel = 0
     for v in sol['sol']:
         d = solution.distanceToSol(sol, v)
-        if bestSel is None or d < bestSel:
+        if d < bestSel:
             bestSel = d
             sel = v
     for v in range(n):
         if v in tabulist or solution.contains(sol, v):
             continue
         d = solution.distanceToSol(sol, v, without=sel)
-        if bestUnsel is None or d > bestUnsel:
+        if d > bestUnsel:
             bestUnsel = d
             unsel = v
-    return sel, round(bestSel,2), unsel, round(bestUnsel)
+    return sel, round(bestSel,2), unsel, round(bestUnsel,2)
 
 
 def updateTabulist(tabulist, sel):
