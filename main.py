@@ -3,10 +3,10 @@ from algorithms import tabusearch, grasp
 import random, time
 
 def executeInstance():
-    path = "instances/MDG-a_2_n500_m50.txt"
+    path = "instances/MDG-a_16_n500_m50.txt"
     inst = instance.readInstance(path)
-    sol = tabusearch.execute(inst, 10000, 20)
-    #sol = grasp.execute(inst, 1000, 0.2)
+    sol = tabusearch.execute(inst, 2000, 10, "greedyRandomized", 0.2)
+    # sol = grasp.execute(inst, 50, 0.3)
     print("\nBEST SOLUTION:")
     solution.printSolution(sol)
 
