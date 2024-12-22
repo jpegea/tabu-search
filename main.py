@@ -1,18 +1,19 @@
 from structure import instance, solution
-from algorithms import tabusearch, grasp
+from algorithms import tabusearch, grasp, prettyTabusearch
 import random, time
 
 def executeInstance():
-    path = "instances/MDG-a_16_n500_m50.txt"
+    path = "instances/MDG-a_14_100_m10.txt"
     inst = instance.readInstance(path)
-    sol = tabusearch.execute(inst, 2000, 10, "greedyRandomized", 0.2)
-    # sol = grasp.execute(inst, 50, 0.3)
+    sol = prettyTabusearch.execute(inst, 20, 10, "greedyRandomized", 0.2)
+    # sol = tabusearch.execute(inst, 30000, 10)
+    # sol = grasp.execute(inst, 30, 0.3)
     print("\nBEST SOLUTION:")
-    solution.printSolution(sol)
+    solution.prettyPrintSolution(sol)
 
 if __name__ == '__main__':
     # random.seed(1)
     start = time.time()
     executeInstance()
     total_time = time.time() - start
-    print("Time:", total_time)
+    print("\nTime:", total_time)

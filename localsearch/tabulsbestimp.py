@@ -7,6 +7,14 @@ def move(sol, tabulist):
     updateTabulist(tabulist, sel)
 
 
+def moveAndPrint(sol, tabulist):
+    sel, ofVarSel, unsel, ofVarUnsel = selectInterchange(sol, tabulist)
+    solution.removeFromSolution(sol, sel, ofVarSel)
+    solution.addToSolution(sol, unsel, ofVarUnsel)
+    updateTabulist(tabulist, sel)
+    print("\t| Out:\t" + str(sel) + "\t In:\t" + str(unsel))
+
+
 def selectInterchange(sol, tabulist):
     n = sol['instance']['n']
     sel = -1
