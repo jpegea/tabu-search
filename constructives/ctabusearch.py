@@ -23,12 +23,6 @@ def randomSolution(inst):
     sol = solution.createEmptySolution(inst)
     n = inst['n']
     while not solution.isFeasible(sol):
-        print("No factible:", sol['sol'])
-        add = True
-        while add:
-            u = random.randint(0, n-1)
-            print(str(u)+', '+str(solution.contains(sol,u)))
-            if not solution.contains(sol, u):
-                solution.addToSolution(sol, u)
-                add = False
+        u = random.randint(0, n-1)
+        solution.addToSolution(sol, u)
     return sol
