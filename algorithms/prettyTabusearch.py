@@ -28,8 +28,8 @@ def execute(inst, iters, tabutenure, initial="greedySolution", alpha=0):
             tabulistAtBest = tabulist.copy()
         
         print("\t| Best:")
-        print("\t|     Sol: " + str(best['sol']))
         print("\t|     OF:  " + str(round(best['of'],2)))
+        print("\t|     Sol: " + str(best['sol']))
         print("\t↓ Tabulist: " + str(tabulist))
 
         solution.prettyPrintSolution(sol)

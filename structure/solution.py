@@ -61,8 +61,8 @@ def printSolution(sol):
 
 def prettyPrintSolution(sol):
     print("." + "-"*50)
-    print("| \033[42mSol:\033[0m", end='')
-    print("\t" + str(sol['sol']) + "\033[0m")
     print("| \033[44mOF:\033[0m", end='')
     print("\t" + str(round(sol['of'],2)) + "\033[0m")
+    print("| \033[42mSol:\033[0m", end='')
+    print("\t" + str(sol['sol']) + "\033[0m")
     print("·"+"-"*50)

@@ -3,9 +3,9 @@ from algorithms import tabusearch, grasp, prettyTabusearch
 import random, time
 
 def executeInstance():
-    path = "instances/MDG-a_14_100_m10.txt"
+    path = "instances/MDG-a_6_n500_m50.txt"
     inst = instance.readInstance(path)
-    sol = prettyTabusearch.execute(inst, 20, 10, "greedyRandomized", 0.2)
+    sol = prettyTabusearch.execute(inst, 50, 10, "greedyRandomized", 0.2)
     # sol = tabusearch.execute(inst, 30000, 10)
     # sol = grasp.execute(inst, 30, 0.3)
     print("\nBEST SOLUTION:")
