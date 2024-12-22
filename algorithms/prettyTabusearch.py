@@ -17,8 +17,9 @@ def execute(inst, iters, tabutenure, initial="greedySolution", alpha=0):
 
         # Alerta de ciclado
         if sol['sol'] == best['sol']:
-            if tabulistAtBest is not None and set(tabulist) == set(tabulistAtBest):
+            if tabulistAtBest is not None and tabulist == tabulistAtBest:
                 print("\033[41mCICLADO!\033[0m en Iter:", i)
+                break
             else:
                 print("\033[105mPosible ciclado\033[0m en Iter:", i)
 
@@ -33,5 +34,5 @@ def execute(inst, iters, tabutenure, initial="greedySolution", alpha=0):
         print("\t↓ Tabulist: " + str(tabulist))
 
         solution.prettyPrintSolution(sol)
-        input("\t|")
+        # input("\t|")
     return best
