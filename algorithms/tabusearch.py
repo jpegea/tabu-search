@@ -5,20 +5,26 @@ from structure import solution
 def execute(inst, iters, tabutenure, initial="greedySolution", alpha=0):
     tabulist = [None] * tabutenure
     sol = chooseInitialSolution(inst, initial, alpha)
-    best = None
-    for i in range(iters):
-        # old = {'sol':sol['sol'].copy(), 'of':sol['of']}
-        tabulsbestimp.move(sol, tabulist)
-        if best is not None and sol['sol'] == best['sol']:
-            print("Iter: "+str(i)+" Ciclado: hem tornat a Best")
-            pass
-        if best is None or best['of'] < sol['of']:
-            if best is not None:
-                print(str(round(best['of'],2))+'\t-> '+str(round(sol['of'],2)))
-            best = {'sol':sol['sol'].copy(), 'of':sol['of']}
-        # print("Best: "+str(round(best['of'],2))+", Now: "+str(round(sol['of'],2)))
-    return best
+    best = {'sol':sol['sol'].copy(), 'of':sol['of']}
+    tabulistAtBest = None
 
+    for i in range(iters):
+        
+        tabulsbestimp.move(sol, tabulist)
+
+        # Alerta de ciclado
+        if sol['sol'] == best['sol']:
+            if tabulistAtBest is not None and set(tabulist) == set(tabulistAtBest):
+                print("\033[41mCICLADO!\033[0m en Iter:", i)
+            else:
+                print("\033[105mPosible ciclado\033[0m en Iter:", i)
+
+        if best['of'] < sol['of']:
+            print(str(round(best['of'],2))+'\t-> '+str(round(sol['of'],2)))
+            best = {'sol':sol['sol'].copy(), 'of':sol['of']}
+            tabulistAtBest = tabulist.copy()
+        
+    return best
 
 def chooseInitialSolution(inst, initial, alpha):
     if initial == "random":
