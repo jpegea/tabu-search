@@ -21,18 +21,20 @@ def selectInterchange(sol, tabulist):
     bestSel = 0x3f3f3f
     unsel = -1
     bestUnsel = 0
-    for v in sol['sol']:
-        d = solution.distanceToSol(sol, v)
-        if d < bestSel:
-            bestSel = d
-            sel = v
-    for v in range(n):
-        if v in tabulist or solution.contains(sol, v):
-            continue
-        d = solution.distanceToSol(sol, v, without=sel)
-        if d > bestUnsel:
-            bestUnsel = d
-            unsel = v
+    bestOfVar = -0x3f3f3f
+    for u in sol['sol']:
+        ofVarSel = solution.distanceToSol(sol, u, without=u)
+        for v in range(n):
+            if v in tabulist or solution.contains(sol, v):
+                continue
+            ofVarUnsel = solution.distanceToSol(sol, v, without=u)            
+            if bestOfVar < ofVarUnsel - ofVarSel:
+                bestOfVar = ofVarUnsel - ofVarSel
+                sel = u
+                unsel = v
+                bestSel = ofVarSel
+                bestUnsel = ofVarUnsel
+
     return sel, round(bestSel,2), unsel, round(bestUnsel,2)
 
 
