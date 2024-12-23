@@ -1,4 +1,4 @@
-from localsearch import tabulsbestimp
+from localsearch import tsbestimp, tsfirstimp
 from structure import solution
 from algorithms import tabusearch
 
@@ -13,7 +13,7 @@ def execute(inst, iters, tabutenure, initial="greedySolution", alpha=0):
     for i in range(iters):
         print("\t| Iter:", i)
         
-        tabulsbestimp.moveAndPrint(sol, tabulist)
+        tsbestimp.moveAndPrint(sol, tabulist)
 
         # Alerta de ciclado
         if sol['sol'] == best['sol']:

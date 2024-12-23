@@ -1,5 +1,5 @@
 from constructives import ctabusearch
-from localsearch import tabulsbestimp
+from localsearch import tsbestimp, tsfirstimp
 from structure import solution
 
 def execute(inst, iters, tabutenure, initial="greedySolution", alpha=0):
@@ -10,14 +10,15 @@ def execute(inst, iters, tabutenure, initial="greedySolution", alpha=0):
 
     for i in range(iters):
         
-        tabulsbestimp.move(sol, tabulist)
+        tsbestimp.move(sol, tabulist)
 
         # Alerta de ciclado
         if sol['sol'] == best['sol']:
             if tabulistAtBest is not None and set(tabulist) == set(tabulistAtBest):
                 print("\033[41mCICLADO!\033[0m en Iter:", i)
             else:
-                print("\033[105mPosible ciclado\033[0m en Iter:", i)
+                # print("\033[105mPosible ciclado\033[0m en Iter:", i)
+                pass
 
         if best['of'] < sol['of']:
             print(str(round(best['of'],2))+'\t-> '+str(round(sol['of'],2)))
