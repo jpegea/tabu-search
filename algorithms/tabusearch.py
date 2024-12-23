@@ -2,7 +2,7 @@ from constructives import ctabusearch
 from localsearch import tsbestimp, tsfirstimp
 from structure import solution
 
-def execute(inst, iters, tabutenure, initial="greedySolution", alpha=0):
+def execute(inst, iters, tabutenure, initial="greedy", alpha=0):
     tabulist = [None] * tabutenure
     sol = chooseInitialSolution(inst, initial, alpha)
     best = {'sol':sol['sol'].copy(), 'of':sol['of']}
@@ -10,7 +10,7 @@ def execute(inst, iters, tabutenure, initial="greedySolution", alpha=0):
 
     for i in range(iters):
         
-        tsbestimp.move(sol, tabulist)
+        tsfirstimp.move(sol, tabulist)
 
         # Alerta de ciclado
         if sol['sol'] == best['sol']:
