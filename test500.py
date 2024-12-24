@@ -7,48 +7,30 @@ def test(inst):
     print("\t\t| OF \t\t| Time \t\t| Iterations \t|")
     print('-'*16+'+'+'-'*15+'+'+'-'*15+'+'+'-'*15+'+')
     
+    iterGrasp = 600
+
+    start = time.time()
+    sol = grasp.execute(inst, iterGrasp, 0.35)
+    end = time.time() - start
+    print("Grasp α = 0.35 \t|", end=' ')
+    print(str(round(sol['of'], 2)) + "\t|", end=' ')
+    print(str(round(end, 2)) + "\t\t|", end=' ')
+    print(str(iterGrasp) + "\t\t|")
+
     iterGrasp = 500
 
     start = time.time()
-    sol = grasp.execute(inst, iterGrasp, 0.3, False)
+    sol = grasp.execute(inst, iterGrasp, 0.5)
     end = time.time() - start
-    print("Grasp α = 0.3 \t|", end=' ')
+    print("Grasp α = 0.5 \t|", end=' ')
     print(str(round(sol['of'], 2)) + "\t|", end=' ')
-    print(str(round(end, 4)) + "\t|", end=' ')
-    print(str(iterGrasp) + "\t\t|")
-
-    iterGrasp = 450
-
-    start = time.time()
-    sol = grasp.execute(inst, iterGrasp, 0.6, False)
-    end = time.time() - start
-    print("Grasp α = 0.6 \t|", end=' ')
-    print(str(round(sol['of'], 2)) + "\t|", end=' ')
-    print(str(round(end, 4)) + "\t|", end=' ')
-    print(str(iterGrasp) + "\t\t|")
-
-    iterGrasp = 300
-
-    start = time.time()
-    sol = grasp.execute(inst, iterGrasp, 0.8, False)
-    end = time.time() - start
-    print("Grasp α = 0.8 \t|", end=' ')
-    print(str(round(sol['of'], 2)) + "\t|", end=' ')
-    print(str(round(end, 4)) + "\t|", end=' ')
+    print(str(round(end, 2)) + "\t\t|", end=' ')
     print(str(iterGrasp) + "\t\t|")
 
     iterTS = 800
 
     start = time.time()
-    sol = tabusearch.execute(inst, iterTS, 20, "random", 0, False)
-    end = time.time() - start
-    print("TS, tenure=20 \t|", end=' ')
-    print(str(round(sol['of'], 2)) + "\t|", end=' ')
-    print(str(round(end, 4)) + "\t|", end=' ')
-    print(str(iterTS) + "\t\t|")
-
-    start = time.time()
-    sol = tabusearch.execute(inst, iterTS, 30, "random", 0, False)
+    sol = tabusearch.execute(inst, iterTS, 30, "random")
     end = time.time() - start
     print("TS, tenure=30 \t|", end=' ')
     print(str(round(sol['of'], 2)) + "\t|", end=' ')
@@ -56,9 +38,9 @@ def test(inst):
     print(str(iterTS) + "\t\t|")
 
     start = time.time()
-    sol = tabusearch.execute(inst, iterTS, 50, "random", 0, False)
+    sol = tabusearch.execute(inst, iterTS, 40, "random")
     end = time.time() - start
-    print("TS, tenure=50 \t|", end=' ')
+    print("TS, tenure=40 \t|", end=' ')
     print(str(round(sol['of'], 2)) + "\t|", end=' ')
     print(str(round(end, 4)) + "\t|", end=' ')
     print(str(iterTS) + "\t\t|")
