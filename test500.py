@@ -24,7 +24,7 @@ def test(inst):
     end = time.time() - start
     print("Grasp α = 0.5 \t|", end=' ')
     print(str(round(sol['of'], 2)) + "\t|", end=' ')
-    print(str(round(end, 2)) + "\t\t|", end=' ')
+    print(str(round(end, 2)) + "  \t|", end=' ')
     print(str(iterGrasp) + "\t\t|")
 
     iterTS = 800
@@ -34,7 +34,7 @@ def test(inst):
     end = time.time() - start
     print("TS, tenure=30 \t|", end=' ')
     print(str(round(sol['of'], 2)) + "\t|", end=' ')
-    print(str(round(end, 4)) + "\t|", end=' ')
+    print(str(round(end, 2)) + "  \t|", end=' ')
     print(str(iterTS) + "\t\t|")
 
     start = time.time()
@@ -42,7 +42,7 @@ def test(inst):
     end = time.time() - start
     print("TS, tenure=40 \t|", end=' ')
     print(str(round(sol['of'], 2)) + "\t|", end=' ')
-    print(str(round(end, 4)) + "\t|", end=' ')
+    print(str(round(end, 2)) + "  \t|", end=' ')
     print(str(iterTS) + "\t\t|")
 
 

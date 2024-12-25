@@ -1,18 +1,12 @@
 from structure import solution
 
-def move(sol, tabulist):
+def move(sol, tabulist, printInterchange=False):
     sel, ofVarSel, unsel, ofVarUnsel = selectInterchange(sol, tabulist)
     solution.removeFromSolution(sol, sel, ofVarSel)
     solution.addToSolution(sol, unsel, ofVarUnsel)
     updateTabulist(tabulist, sel)
-
-
-def moveAndPrint(sol, tabulist):
-    sel, ofVarSel, unsel, ofVarUnsel = selectInterchange(sol, tabulist)
-    solution.removeFromSolution(sol, sel, ofVarSel)
-    solution.addToSolution(sol, unsel, ofVarUnsel)
-    updateTabulist(tabulist, sel)
-    print("\t| Out:\t" + str(sel) + "\t In:\t" + str(unsel))
+    if printInterchange:
+        print("\t| Out:\t" + str(sel) + "\t In:\t" + str(unsel))
 
 
 def selectInterchange(sol, tabulist):
@@ -22,7 +16,6 @@ def selectInterchange(sol, tabulist):
     unsel = -1
     bestUnsel = 0
     bestOfVar = -0x3f3f3f
-    improved = False
     for u in sol['sol']:
         ofVarSel = solution.distanceToSol(sol, u, without=u)
         for v in range(n):
@@ -35,11 +28,8 @@ def selectInterchange(sol, tabulist):
                 unsel = v
                 bestSel = ofVarSel
                 bestUnsel = ofVarUnsel
-            improved = ofVarUnsel > ofVarSel
-            if improved:
-                break
-        if improved:
-            break
+            if ofVarUnsel > ofVarSel:
+                return sel, round(bestSel,2), unsel, round(bestUnsel,2)
     return sel, round(bestSel,2), unsel, round(bestUnsel,2)
 
 

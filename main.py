@@ -3,11 +3,11 @@ from algorithms import tabusearch, grasp, prettyTabusearch
 import random, time
 
 def executeInstance():
-    path = "instances/MDG-a_2_n500_m50.txt"
+    path = "instances/MDG-a_6_n500_m50.txt"
     inst = instance.readInstance(path)
-    sol = prettyTabusearch.execute(inst, 1000, 20, "random")
-    # sol = tabusearch.execute(inst, 2000, 10)
-    # sol = grasp.execute(inst, 100, 0.3)
+    sol = prettyTabusearch.execute(inst, 800, 40)
+    # sol = tabusearch.execute(inst, 800, 20, "random")
+    # sol = grasp.execute(inst, 500, 0.4)
     print("\nBEST SOLUTION:")
     solution.prettyPrintSolution(sol)
 
