@@ -9,7 +9,7 @@ def test(inst, testTime):
     sol, iters = grasp.executeduring(inst, testTime, 0.35)
     end = time.time() - start
     print("Grasp α = 0.35", end='\t')
-    print("OF: " + str(round(sol['of'],2)))
+    print("OF: " + str(round(sol['of'],2)), end='\t')
     print("Time: " + str(round(end, 2)), end='\t')
     print("Iters: " + str(iters))
 
@@ -18,6 +18,7 @@ def test(inst, testTime):
     end = time.time() - start
     print("Grasp α = 0.5", end='\t')
     print("OF: " + str(round(sol['of'],2)), end='\t')
+    print("Time: " + str(round(end, 2)), end='\t')
     print("Iters: " + str(iters))
 
     start = time.time()
