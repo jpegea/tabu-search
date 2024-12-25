@@ -1,5 +1,3 @@
-import math
-
 def createEmptySolution(instance):
     sol = {}
     sol['instance'] = instance

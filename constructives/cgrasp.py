@@ -1,7 +1,6 @@
 from structure import solution
 import random
 
-
 def construct(inst, alpha):
     sol = solution.createEmptySolution(inst)
     n = inst['n']

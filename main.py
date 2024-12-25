@@ -1,13 +1,12 @@
 from structure import instance, solution
-from algorithms import tabusearch, grasp, prettyTabusearch
+from algorithms import tabusearch, grasp
 import random, time
 
 def executeInstance():
     path = "instances/MDG-a_6_n500_m50.txt"
     inst = instance.readInstance(path)
-    sol = prettyTabusearch.execute(inst, 800, 40)
-    # sol = tabusearch.execute(inst, 800, 20, "random")
-    # sol = grasp.execute(inst, 500, 0.4)
+    sol = tabusearch.execute(inst, 800, 20, "random", 0, True)
+    sol = grasp.execute(inst, 500, 0.4)
     print("\nBEST SOLUTION:")
     solution.prettyPrintSolution(sol)
 
