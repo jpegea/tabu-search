@@ -22,14 +22,14 @@ def selectInterchange(sol, tabulist):
             if v in tabulist or solution.contains(sol, v):
                 continue
             ofVarUnsel = solution.distanceToSol(sol, v, without=u)
+            if ofVarUnsel > ofVarSel:
+                return u, round(ofVarSel,2), v, round(ofVarUnsel,2)
             if bestOfVar < ofVarUnsel - ofVarSel:
                 bestOfVar = ofVarUnsel - ofVarSel
                 sel = u
                 unsel = v
                 bestSel = ofVarSel
                 bestUnsel = ofVarUnsel
-            if ofVarUnsel > ofVarSel:
-                return sel, round(bestSel,2), unsel, round(bestUnsel,2)
     return sel, round(bestSel,2), unsel, round(bestUnsel,2)
 
 
