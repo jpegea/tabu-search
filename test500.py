@@ -38,7 +38,7 @@ def test(inst, testTime):
     print("Iters: " + str(iters))
     
 
-random.seed(500)
+random.seed(1)
 testTime = 50
 
 start = time.time()
