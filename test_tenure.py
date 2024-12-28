@@ -1,19 +1,19 @@
-from algorithms import grasp
+from algorithms import tabusearch
 from structure import instance
 import random, time
 
+
 def test(inst):
-    for j in range(2, 10):
-        alpha = 0.1 * j;
-        print(round(alpha, 2), end=', ')
+    for tabutenure in range(20, 60, 10):
+        print(tabutenure, end=', ')
         for t in range(20, 60, 10):
-            sol, iters = grasp.executeduring(inst, t, alpha)
+            sol, iters = tabusearch.executeduring(inst, t, tabutenure, "random")
             print(round(sol['of'], 2), end=', ')
             print(t, end=', ')
             print(iters, end=', ')
         print()
 
-        
+
 def testAllInstances():
     path = "instances/MDG-a_2_n500_m50.txt"
     inst = instance.readInstance(path)
