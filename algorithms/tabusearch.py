@@ -1,11 +1,11 @@
 from tabusearch import tsfirstimp, tsbestimp
-from constructives import cgrasp
+from constructives import ctabusearch
 from structure import solution
-import random, time
+import time
 
 def execute(inst, iters, tabutenure, initial="random", alpha=0, printIters=False):
     tabulist = [None] * tabutenure
-    sol = initialSolution(inst, initial, alpha)
+    sol = ctabusearch.initialSolution(inst, initial, alpha)
     best = {'sol' : sol['sol'].copy(), 'of' : sol['of']}
     for i in range(iters):
         if printIters:
@@ -27,7 +27,7 @@ def executeduring(inst, execTime, tabutenure, initial="random", alpha=0):
     tabulist = [None] * tabutenure
     best = solution.createEmptySolution(inst)
     start = time.time()
-    sol = initialSolution(inst, initial, alpha)
+    sol = ctabusearch.initialSolution(inst, initial, alpha)
     iters = 0
     while time.time() - start < execTime:
         tsfirstimp.move(sol, tabulist)
@@ -35,18 +35,3 @@ def executeduring(inst, execTime, tabutenure, initial="random", alpha=0):
         if best['of'] < sol['of']:
             best = {'sol' : sol['sol'].copy(), 'of' : sol['of']}
     return best, iters
-
-
-def initialSolution(inst, initial, alpha):
-    if initial == "random":
-        sol = solution.createEmptySolution(inst)
-        n = inst['n']
-        while not solution.isFeasible(sol):
-            u = random.randint(0, n-1)
-            solution.addToSolution(sol, u)
-        return sol
-    elif initial == "greedy":
-        sol = cgrasp.construct(inst, alpha)
-    else:
-        sol = cgrasp.construct(inst, 0)
-    return sol

@@ -17,7 +17,7 @@ def test(inst, testTime):
         printOutput(alg, sol, iters)
     for t in tenure:
         alg = "TS tenure = " + str(t)
-        sol, iters = tabusearch.executeduring(inst, testTime, t)
+        sol, iters = tabusearch.executeduring(inst, testTime, t, "greedy", 0.7)
         printOutput(alg, sol, iters)
 
         

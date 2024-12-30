@@ -5,8 +5,7 @@ import random, time
 def executeInstance():
     path = "instances/MDG-a_6_n500_m50.txt"
     inst = instance.readInstance(path)
-    sol = tabusearch.execute(inst, 800, 20, "random", 0, True)
-    sol = grasp.execute(inst, 500, 0.4)
+    sol = tabusearch.execute(inst, 500, 30, "random")
     print("\nBEST SOLUTION:")
     solution.prettyPrintSolution(sol)
 
