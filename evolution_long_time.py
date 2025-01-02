@@ -13,13 +13,13 @@ grasp2 = [7682.76, 7713.99, 7713.99, 7713.99, 7713.99, 7713.99, 7730.55, 7730.55
 
 plt.figure(figsize=(9.5, 3.7), dpi=200) 
 plt.grid(True, axis='y', linestyle='--', linewidth=0.5)
-plt.plot(time, ts1, marker='d', color='black', label='TS 1', linestyle='--', linewidth=1)
-plt.plot(time, ts2, marker='D', color='black', label='TS 2', linestyle='--', linewidth=1)
-plt.plot(time, grasp1, marker='+', color='black', label='GRASP 1', linestyle='--', linewidth=1)
-plt.plot(time, grasp2, marker='x', color='black', label='GRASP 2', linestyle='--', linewidth=1)
+plt.plot(time, ts1, marker='d', color='blue', label='TS 1', linestyle='--', linewidth=1)
+plt.plot(time, ts2, marker='D', color='magenta', label='TS 2', linestyle='--', linewidth=1)
+plt.plot(time, grasp1, marker='+', color='green', label='GRASP 1', linestyle='--', linewidth=1)
+plt.plot(time, grasp2, marker='x', color='red', label='GRASP 2', linestyle='--', linewidth=1)
 plt.xlabel("Time (in seconds)")
 plt.ylabel("Objective Function value")
-plt.title("Evolution of the algorithms at short executions")
+plt.title("Evolution of the algorithms at long executions")
 plt.legend(fontsize=10, loc='upper left', ncol=2)
 
 plt.tight_layout()
