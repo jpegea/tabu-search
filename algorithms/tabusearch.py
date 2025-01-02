@@ -1,4 +1,4 @@
-from tabusearch import tsfirstimp, tsbestimp
+from tabusearch import tsfirstimp
 from constructives import ctabusearch
 from structure import solution
 import time
@@ -17,8 +17,8 @@ def execute(inst, iters, tabutenure, initial="random", alpha=0, printIters=False
 
         if printIters:
             print("\t| Best:\n\t|     OF:  " + str(round(best['of'],2)) +
-                  "\t|     Sol: " + str(best['sol']) +
-                  "\t↓ Tabulist: " + str(tabulist))
+                  "\n\t|     Sol: " + str(best['sol']) +
+                  "\n\t↓ Tabulist: " + str(tabulist))
             solution.prettyPrintSolution(sol)
     return best
 

@@ -27,7 +27,11 @@ def executeduring(inst, execTime, alpha):
     start = time.time()
     iters = 0
     best = solution.createEmptySolution(inst)
+    printAt = 0
     while time.time() - start < execTime:
+        if time.time() - start > printAt:
+            printAt += 1
+            print(round(best['of'], 2), end=', ')
         sol = cgrasp.construct(inst, alpha)
         lsbestimp.improve(sol)
         iters += 1

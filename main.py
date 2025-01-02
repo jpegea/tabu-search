@@ -9,6 +9,7 @@ def executeInstance():
     print("\nBEST SOLUTION:")
     solution.prettyPrintSolution(sol)
 
+
 if __name__ == '__main__':
     random.seed(1)
     start = time.time()
