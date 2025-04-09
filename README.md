@@ -1,1 +1,1 @@
-[Project Summary](docs/Article_TS_MDP.pdf)
+[Project summary](docs/Article_TS_MDP.pdf)
